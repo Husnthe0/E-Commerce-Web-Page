@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | VELORÉ</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/checkout.css">
+
+</head>
+
+<body>
+
+<header class="header">
+    <nav class="navbar">
+
+        <div class="logo">VELORÉ</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="shop.html">SHOP</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <span class="cart-count">0</span>
+        </div>
+
+    </nav>
+</header>
+
+<section class="checkout-wrapper">
+
+    <div class="checkout-main">
+
+        <div class="checkout-steps">
+
+            <div class="step active">
+                <span>1</span>
+                <p>Information</p>
+            </div>
+
+            <div class="step">
+                <span>2</span>
+                <p>Shipping</p>
+            </div>
+
+            <div class="step">
+                <span>3</span>
+                <p>Payment</p>
+            </div>
+
+        </div>
+
+        <div class="express-checkout">
+
+            <button class="apple">
+                <i class="fa-brands fa-apple"></i> Pay
+            </button>
+
+            <button class="google">
+                <i class="fa-brands fa-google"></i> Pay
+            </button>
+
+        </div>
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <div class="checkout-section">
+
+            <h2>Contact Information</h2>
+
+            <input type="email" placeholder="Email Address">
+
+        </div>
+
+        <div class="checkout-section">
+
+            <h2>Shipping Address</h2>
+
+            <div class="grid-2">
+                <input type="text" placeholder="First Name">
+                <input type="text" placeholder="Last Name">
+            </div>
+
+            <input type="text" placeholder="Address">
+            <input type="text" placeholder="Apartment, suite, etc. (optional)">
+
+            <div class="grid-2">
+                <input type="text" placeholder="City">
+                <input type="text" placeholder="Postal Code">
+            </div>
+
+        </div>
+
+        <div class="checkout-section">
+
+            <h2>Shipping Method</h2>
+
+            <label class="radio-box">
+                <input type="radio" name="ship">
+                <span>Standard Shipping (5–7 days)</span>
+                <strong>Free</strong>
+            </label>
+
+            <label class="radio-box">
+                <input type="radio" name="ship">
+                <span>Express Shipping (2–3 days)</span>
+                <strong>$5</strong>
+            </label>
+
+        </div>
+
+        <div class="checkout-section">
+
+            <h2>Payment</h2>
+
+            <label class="radio-box">
+                <input type="radio" name="pay">
+                <span>Cash on Delivery</span>
+            </label>
+
+            <label class="radio-box">
+                <input type="radio" name="pay">
+                <span>Credit / Debit Card</span>
+            </label>
+
+            <label class="radio-box">
+                <input type="radio" name="pay">
+                <span>PayPal</span>
+            </label>
+
+        </div>
+
+    </div>
+
+    <div class="checkout-sidebar">
+
+        <h2>Your Order</h2>
+
+        <div id="cart-items"></div>
+
+        <div class="order-item">
+            <span>Shipping</span>
+            <span id="shipping-cost">Free</span>
+        </div>
+
+        <div class="order-total">
+            <span>Total</span>
+            <span id="cart-total">$0</span>
+        </div>
+
+        <button class="place-order">
+            Place Order
+        </button>
+
+        <p class="secure">
+            <i class="fa-solid fa-lock"></i>
+            Secure encrypted checkout
+        </p>
+
+    </div>
+
+</section>
+
+<script src="js/cart.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>
+<script src="js/cart-badge.js"></script>
+<script src="js/page-transition.js"></script>
+
+</body>
+
+</html>

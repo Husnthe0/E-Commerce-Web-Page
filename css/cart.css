@@ -1,0 +1,131 @@
+
+.cart-wrapper {
+    padding: 60px 10%;
+    background: #f9f9f9;
+    min-height: 100vh;
+}
+.cart-wrapper h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+.cart-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+.cart-items {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.cart-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 120px 100px 40px;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.cart-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.cart-info h3 {
+    font-size: 1rem;
+    margin: 0;
+}
+.cart-info p {
+    color: gray;
+    margin: 5px 0 0;
+}
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.qty-controls button {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #eee;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.qty-controls button:hover {
+    background: #ddd;
+}
+.cart-total-item {
+    font-weight: bold;
+}
+.remove-btn {
+    border: none;
+    background: transparent;
+    color: #999;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.remove-btn:hover {
+    color: red;
+}
+.cart-summary {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 20px;
+}
+
+.summary-line,
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+.summary-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.checkout-btn {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.checkout-btn:hover {
+    opacity: 0.85;
+}
+.continue-btn {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: gray;
+    text-decoration: none;
+}
+
+.continue-btn:hover {
+    color: black;
+}
+.empty-cart {
+    text-align: center;
+    padding: 50px;
+    color: gray;
+}
+
+.empty-cart i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}

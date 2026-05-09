@@ -1,0 +1,389 @@
+/* =========================
+   SHOP HERO
+========================= */
+
+.shop-hero{
+
+    height: 45vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url('images/shop-banner.jpg');
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: var(--white);
+
+    position: relative;
+
+}
+
+.shop-hero-content{
+
+    max-width: 700px;
+    padding: 0 20px;
+
+}
+
+.breadcrumb{
+
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+
+    margin-bottom: 20px;
+
+    color: #f1f1f1;
+
+}
+
+.shop-hero h1{
+
+    font-size: 4rem;
+    font-family: 'Playfair Display', serif;
+
+    margin-bottom: 20px;
+
+}
+
+.shop-hero p{
+
+    line-height: 1.9;
+
+}
+
+
+/* =========================
+   SHOP CONTROLS
+========================= */
+
+.shop-controls{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+    padding-top: 70px;
+    padding-bottom: 20px;
+
+}
+
+.filter-buttons{
+
+    display: flex;
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+.filter-buttons button{
+
+    padding: 13px 28px;
+
+    border: 1px solid var(--border);
+
+    background: var(--white);
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+
+}
+
+.filter-buttons button:hover,
+.filter-buttons .active{
+
+    background: var(--primary);
+    color: var(--white);
+
+    border-color: var(--primary);
+
+}
+
+.sort-dropdown select{
+
+    padding: 14px 25px;
+
+    border-radius: 30px;
+    border: 1px solid var(--border);
+
+    outline: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+}
+
+
+/* =========================
+   SHOP PRODUCTS
+========================= */
+
+.shop-products{
+
+    padding-top: 30px;
+
+}
+
+.shop-products .products-grid{
+
+    grid-template-columns: repeat(4, 1fr);
+
+}
+
+
+/* =========================
+   PRODUCT BADGE
+========================= */
+
+.product-card{
+
+    position: relative;
+
+}
+
+.product-badge{
+
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    background: var(--primary);
+    color: var(--white);
+
+    padding: 8px 16px;
+
+    border-radius: 30px;
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    z-index: 2;
+
+    letter-spacing: 1px;
+
+}
+
+.product-stars{
+
+    color: gold;
+
+    margin-bottom: 15px;
+
+    font-size: 0.95rem;
+
+}
+
+
+/* =========================
+   PROMO BANNER
+========================= */
+
+.promo-banner{
+
+    background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('images/promo.jpg');
+
+    background-size: cover;
+    background-position: center;
+
+    text-align: center;
+
+    padding: 130px 20px;
+
+    color: var(--white);
+
+}
+
+.promo-content p{
+
+    color: var(--primary);
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+
+}
+
+.promo-content h2{
+
+    font-size: 3.5rem;
+    font-family: 'Playfair Display', serif;
+
+    margin-bottom: 35px;
+
+}
+
+
+/* =========================
+   BENEFITS BAR
+========================= */
+
+.benefits-bar{
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+
+    background: var(--light);
+
+}
+
+.benefit-item{
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+}
+
+.benefit-item i{
+
+    font-size: 2rem;
+    color: var(--primary);
+
+    margin-bottom: 15px;
+
+}
+
+.benefit-item h3{
+
+    font-size: 1.1rem;
+
+}
+
+
+/* =========================
+   INSTAGRAM SECTION
+========================= */
+
+.instagram-section{
+
+    padding-top: 100px;
+
+}
+
+.instagram-grid{
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+
+    margin-top: 50px;
+
+}
+
+.instagram-grid img{
+
+    border-radius: 20px;
+
+    height: 320px;
+
+    object-fit: cover;
+
+    transition: 0.4s ease;
+
+    cursor: pointer;
+
+}
+
+.instagram-grid img:hover{
+
+    transform: scale(1.03);
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 1100px){
+
+    .shop-products .products-grid{
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .benefits-bar{
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .instagram-grid{
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media(max-width: 768px){
+
+    .shop-hero{
+
+        height: 40vh;
+
+    }
+
+    .shop-hero h1{
+
+        font-size: 2.8rem;
+
+    }
+
+    .shop-controls{
+
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+
+    .shop-products .products-grid{
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .promo-content h2{
+
+        font-size: 2.2rem;
+
+    }
+
+    .benefits-bar{
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .instagram-grid{
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

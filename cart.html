@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cart | VELORÉ</title>
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAV ================= -->
+
+<header class="header">
+
+    <nav class="navbar">
+
+        <div class="logo">VELORÉ</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="shop.html">SHOP</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <span class="cart-count">0</span>
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= CART SECTION ================= -->
+
+<section class="cart-wrapper">
+
+    <h1>Your Shopping Cart</h1>
+
+    <div class="cart-container">
+
+        <!-- LEFT: ITEMS -->
+        <div class="cart-items" id="cart-items"></div>
+
+        <!-- RIGHT: SUMMARY -->
+        <div class="cart-summary">
+
+            <h2>Order Summary</h2>
+
+            <div class="summary-line">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">$0</span>
+            </div>
+
+            <div class="summary-line">
+                <span>Shipping</span>
+                <span>Free</span>
+            </div>
+
+            <div class="summary-total">
+                <span>Total</span>
+                <span id="cart-total">$0</span>
+            </div>
+
+            <a href="checkout.html" class="checkout-btn">
+                Proceed to Checkout
+            </a>
+
+            <a href="shop.html" class="continue-btn">
+                Continue Shopping
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SCRIPT ================= -->
+
+<script src="cart.js"></script>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+/* ================= RENDER CART ================= */
+
+function renderCart() {
+
+    const container = document.getElementById("cart-items");
+
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    if (cart.length === 0) {
+        container.innerHTML = `
+            <div class="empty-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <h3>Your cart is empty</h3>
+                <a href="shop.html">Go Shopping</a>
+            </div>
+        `;
+        updateTotals();
+        return;
+    }
+
+    cart.forEach(item => {
+
+        container.innerHTML += `
+            <div class="cart-item">
+
+                <img src="${item.image}" alt="${item.name}">
+
+                <div class="cart-info">
+                    <h3>${item.name}</h3>
+                    <p>$${item.price}</p>
+                </div>
+
+                <div class="qty-controls">
+
+                    <button onclick="decreaseQty(${item.id})">-</button>
+
+                    <span>${item.qty}</span>
+
+                    <button onclick="increaseQty(${item.id})">+</button>
+
+                </div>
+
+                <div class="cart-total-item">
+                    $${(item.price * item.qty).toFixed(2)}
+                </div>
+
+                <button class="remove-btn" onclick="removeItem(${item.id})">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+        `;
+
+    });
+
+    updateTotals();
+}
+
+/* ================= UPDATE TOTALS ================= */
+
+function updateTotals() {
+
+    let subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+    document.getElementById("cart-subtotal").innerText = "$" + subtotal.toFixed(2);
+    document.getElementById("cart-total").innerText = "$" + subtotal.toFixed(2);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/* ================= INCREASE ================= */
+
+function increaseQty(id) {
+
+    let item = cart.find(i => i.id === id);
+    if (!item) return;
+
+    item.qty++;
+
+    renderCart();
+}
+
+/* ================= DECREASE ================= */
+
+function decreaseQty(id) {
+
+    let item = cart.find(i => i.id === id);
+    if (!item) return;
+
+    item.qty--;
+
+    if (item.qty <= 0) {
+        cart = cart.filter(i => i.id !== id);
+    }
+
+    renderCart();
+}
+
+/* ================= REMOVE ================= */
+
+function removeItem(id) {
+
+    cart = cart.filter(i => i.id !== id);
+
+    renderCart();
+}
+
+/* ================= INIT ================= */
+
+renderCart();
+
+</script>
+
+</body>
+</html>
+    <script src="js/cart-badge.js"></script>
+    <script src="js/page-transition.js"></script>
+
+</body>
+
+</html>
